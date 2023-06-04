@@ -1,0 +1,14 @@
+fetch("https://restcountries.com/v3.1/all")
+  .then((response) => response.json())
+  .then((data) => {
+    data.forEach((country) => {
+      const name = country.name.common;
+      const capital = country.capital?.[0] || "N/A";
+      const flag = country.flags.svg;
+
+      console.log("Name:", name);
+      console.log("Capital:", capital);
+      console.log("Flag:", flag);
+      console.log("--------------------");
+    });
+  })

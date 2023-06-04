@@ -1,0 +1,15 @@
+fetch("https://restcountries.com/v3.1/all")
+  .then((response) => response.json())
+  .then((data) => {
+    let totalPopulation = 0;
+    data.forEach((country) => {
+      const population = country.translations.population?.value || 0;
+      totalPopulation += parseInt(population);
+    });
+
+    console.log("Total Population:", totalPopulation);
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+

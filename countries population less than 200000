@@ -1,0 +1,13 @@
+fetch("https://restcountries.com/v3.1/all")
+  .then((response) => response.json())
+  .then((data) => {
+    const filteredCountries = data.filter((country) => {
+      let population = country.population< 200000;
+      return population;
+    });
+
+    filteredCountries.forEach((country) => {
+      console.log(country.name.common);
+    });
+  })
+  
